@@ -10,6 +10,7 @@ import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -36,6 +37,7 @@ public class SysMenuController extends AbstractController {
 		//查询列表数据
 		Query query = new Query(params);
 		List<SysMenuEntity> menuList = sysMenuService.queryList(query);
+		System.out.println("menuliST:"+menuList);
 		int total = sysMenuService.queryTotal(query);
 		
 		PageUtils pageUtil = new PageUtils(menuList, total, query.getLimit(), query.getPage());
@@ -73,12 +75,16 @@ public class SysMenuController extends AbstractController {
 		List<SysMenuEntity> menuList = null;
 		
 		//只有超级管理员，才能查看所有管理员列表
-		if(getUserId() == Constant.SUPER_ADMIN){
-			menuList = sysMenuService.queryList(new HashMap<String, Object>());
-		}else{
-			menuList = sysMenuService.queryUserList(getUserId());
+		//既然授权了额，为什么不能看
+//		if(getUserId() == Constant.SUPER_ADMIN){
+//			menuList = sysMenuService.queryList(new HashMap<String, Object>());
+//		}else{
+//			menuList = sysMenuService.queryUserList(getUserId());
+//		}
+		menuList = sysMenuService.queryList(new HashMap<String, Object>());
+		for(SysMenuEntity m:menuList){
+			System.out.println(m.getName());
 		}
-		
 		return R.ok().put("menuList", menuList);
 	}
 	
@@ -129,11 +135,11 @@ public class SysMenuController extends AbstractController {
 	@RequestMapping("/delete")
 	@RequiresPermissions("sys:menu:delete")
 	public R delete(@RequestBody Long[] menuIds){
-		for(Long menuId : menuIds){
-			if(menuId.longValue() <= 30){
-				return R.error("系统菜单，不能删除");
-			}
-		}
+//		for(Long menuId : menuIds){
+//			if(menuId.longValue() <= 30){
+//				return R.error("系统菜单，不能删除");
+//			}
+//		}
 		sysMenuService.deleteBatch(menuIds);
 		
 		return R.ok();
@@ -145,6 +151,12 @@ public class SysMenuController extends AbstractController {
 	@RequestMapping("/user")
 	public R user(){
 		List<SysMenuEntity> menuList = sysMenuService.getUserMenuList(getUserId());
+
+		if(menuList!=null&&!menuList.isEmpty()){
+			for(SysMenuEntity m:menuList){
+				System.out.println("当前用户权限："+m.getMenuId()+"-->"+m.getName());
+			}
+		}
 		
 		return R.ok().put("menuList", menuList);
 	}

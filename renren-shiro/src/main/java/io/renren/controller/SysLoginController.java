@@ -46,7 +46,8 @@ public class SysLoginController {
 
         //生成文字验证码
         String text = producer.createText();
-        //生成图片验证码
+		System.out.println("生成文字验证码:"+text);
+		//生成图片验证码
         BufferedImage image = producer.createImage(text);
         //保存到shiro session
         ShiroUtils.setSessionAttribute(Constants.KAPTCHA_SESSION_KEY, text);
@@ -61,7 +62,7 @@ public class SysLoginController {
 	@ResponseBody
 	@RequestMapping(value = "/sys/login", method = RequestMethod.POST)
 	public R login(String username, String password, String captcha)throws IOException {
-		String kaptcha = ShiroUtils.getKaptcha(Constants.KAPTCHA_SESSION_KEY);
+//		String kaptcha = ShiroUtils.getKaptcha(Constants.KAPTCHA_SESSION_KEY);
 		//暂时去掉验证码
 //		if(!captcha.equalsIgnoreCase(kaptcha)){
 //			return R.error("验证码不正确");

@@ -114,6 +114,7 @@ var vm = new Vue({
                 
                 //勾选角色所拥有的菜单
     			var menuIds = vm.role.menuIdList;
+
     			for(var i=0; i<menuIds.length; i++) {
     				var node = ztree.getNodeByParam("menuId", menuIds[i]);
     				ztree.checkNode(node, true, false);
@@ -127,6 +128,7 @@ var vm = new Vue({
 			for(var i=0; i<nodes.length; i++) {
 				menuIdList.push(nodes[i].menuId);
 			}
+			console.log("被选中的角色项。。。。。。。。。"+menuIdList);
 			vm.role.menuIdList = menuIdList;
 			
 			var url = vm.role.roleId == null ? "../sys/role/save" : "../sys/role/update";
