@@ -1,5 +1,6 @@
 package io.renren.aop;
 
+import com.alibaba.fastjson.JSON;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.slf4j.Logger;//spring自带的日志框架
@@ -33,6 +34,11 @@ public class HttpAspect {
         logger.info("class_method={}",joinPoint.getSignature().getDeclaringTypeName()+'.'+ joinPoint.getSignature().getName());//获取类名及类方法
         //参数
         logger.info("args={}",joinPoint.getArgs());
+
+        //请求的参数
+        Object[] args = joinPoint.getArgs();
+//        String params = JSON.toJSONString(args[0]);
+//        System.out.println("req params ............"+params);
     }
 
     @After("cut()")//无论Controller中调用方法以何种方式结束，都会执行

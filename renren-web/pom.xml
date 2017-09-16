@@ -35,6 +35,13 @@
             <artifactId>renren-api</artifactId>
             <version>${renren-version}</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.javassist/javassist -->
+        <dependency>
+            <groupId>org.javassist</groupId>
+            <artifactId>javassist</artifactId>
+            <version>3.20.0-GA</version>
+        </dependency>
+
     </dependencies>
 	<build>
 		<finalName>renren-security</finalName>
