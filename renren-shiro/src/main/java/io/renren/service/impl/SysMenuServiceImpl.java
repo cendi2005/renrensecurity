@@ -27,11 +27,25 @@ public class SysMenuServiceImpl implements SysMenuService {
 	
 	@Override
 	public List<SysMenuEntity> queryListParentId(Long parentId, List<Long> menuIdList) {
+		System.out.println("查询的parentId:"+parentId);
+		System.out.println("menuIdList:"+menuIdList);
+
+		//查询所有的系统跟目录,这个可以使用缓存
 		List<SysMenuEntity> menuList = sysMenuDao.queryListParentId(parentId);
+
+//		System.out.println("========查询到的根菜单的目录=============");
+//		if(menuIdList!=null&&!menuIdList.isEmpty()){
+//			for(SysMenuEntity m:menuList){
+//				System.out.println("菜单名称："+m.getName()+",菜单id:"+m.getMenuId()+",父id:"+m.getParentId());
+//			}
+//		}
+
+
 		if(menuIdList == null){
 			return menuList;
 		}
-		
+
+		//看当前的menuidList中，是否包含，如果包含，则添加到用户菜单列表中去
 		List<SysMenuEntity> userMenuList = new ArrayList<>();
 		for(SysMenuEntity menu : menuList){
 			if(menuIdList.contains(menu.getMenuId())){
@@ -55,6 +69,13 @@ public class SysMenuServiceImpl implements SysMenuService {
 		
 		//用户菜单列表
 		List<Long> menuIdList = sysUserService.queryAllMenuId(userId);
+		System.out.println("=========用户菜单列表===========");
+		if(menuIdList!=null&&!menuIdList.isEmpty()){
+			for(Long id:menuIdList){
+				System.out.println("用户所有的菜单id");
+			}
+		}
+
 		return getAllMenuList(menuIdList);
 	}
 	

@@ -152,11 +152,11 @@ public class SysMenuController extends AbstractController {
 	public R user(){
 		List<SysMenuEntity> menuList = sysMenuService.getUserMenuList(getUserId());
 
-		if(menuList!=null&&!menuList.isEmpty()){
-			for(SysMenuEntity m:menuList){
-				System.out.println("当前用户权限："+m.getMenuId()+"-->"+m.getName());
-			}
-		}
+//		if(menuList!=null&&!menuList.isEmpty()){
+//			for(SysMenuEntity m:menuList){
+//				System.out.println("当前用户权限："+m.getMenuId()+"-->"+m.getName());
+//			}
+//		}
 		
 		return R.ok().put("menuList", menuList);
 	}
