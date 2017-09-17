@@ -12,7 +12,9 @@
 		<module>renren-schedule</module> <!-- 定时任务模块 -->
 		<module>renren-gen</module> <!-- 代码生成器模块 -->
 		<module>renren-api</module> <!-- API模块 -->
-		<module>renren-web</module> <!-- 管理后台模块 -->
+		<module>renren-web</module>
+		<module>other</module>
+		<module>tio</module>
 	</modules>
 
 	<properties>

@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/other/other.iml" filepath="$PROJECT_DIR$/other/other.iml" />
       <module fileurl="file://$PROJECT_DIR$/renren-api/renren-api.iml" filepath="$PROJECT_DIR$/renren-api/renren-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/renren-common/renren-common.iml" filepath="$PROJECT_DIR$/renren-common/renren-common.iml" />
       <module fileurl="file://$PROJECT_DIR$/renren-gen/renren-gen.iml" filepath="$PROJECT_DIR$/renren-gen/renren-gen.iml" />
@@ -9,6 +10,7 @@
       <module fileurl="file://$PROJECT_DIR$/renren-security.iml" filepath="$PROJECT_DIR$/renren-security.iml" />
       <module fileurl="file://$PROJECT_DIR$/renren-shiro/renren-shiro.iml" filepath="$PROJECT_DIR$/renren-shiro/renren-shiro.iml" />
       <module fileurl="file://$PROJECT_DIR$/renren-web/renren-web.iml" filepath="$PROJECT_DIR$/renren-web/renren-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tio/tio.iml" filepath="$PROJECT_DIR$/tio/tio.iml" />
     </modules>
   </component>
 </project>
