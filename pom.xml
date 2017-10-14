@@ -14,7 +14,8 @@
 		<module>renren-api</module> <!-- API模块 -->
 		<module>renren-web</module>
 		<module>other</module>
-		<module>tio</module>
+		<module>renrentio</module>
+		<module>renren-tio</module>
 	</modules>
 
 	<properties>
