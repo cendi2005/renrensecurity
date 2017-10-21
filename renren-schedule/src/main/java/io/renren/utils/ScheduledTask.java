@@ -15,12 +15,12 @@ public class ScheduledTask {
 
     private static final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
 
-    @Scheduled(fixedDelayString = "1000")
+    @Scheduled(fixedDelayString = "5000")
     public void getTask1() {
         System.out.println("任务1,从配置文件加载任务信息，当前时间：" + dateFormat.format(new Date()));
     }
 
-    @Scheduled(cron = "* * * * * ?")
+    @Scheduled(fixedDelayString = "5000")
     public void getTask2() {
         System.out.println("任务2,从配置文件加载任务信息，当前时间：" + dateFormat.format(new Date()));
     }

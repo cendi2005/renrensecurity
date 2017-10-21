@@ -15,7 +15,10 @@
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/demo/pom.xml" />
+        <option value="$PROJECT_DIR$/renren-thread/pom.xml" />
+        <option value="$PROJECT_DIR$/renren-tio/pom.xml" />
         <option value="$PROJECT_DIR$/renrentio/pom.xml" />
+        <option value="$PROJECT_DIR$/swing/pom.xml" />
         <option value="$PROJECT_DIR$/tio/pom.xml" />
       </set>
     </option>

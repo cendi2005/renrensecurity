@@ -9,7 +9,6 @@
       <module fileurl="file://$PROJECT_DIR$/renren-schedule/renren-schedule.iml" filepath="$PROJECT_DIR$/renren-schedule/renren-schedule.iml" />
       <module fileurl="file://$PROJECT_DIR$/renren-security.iml" filepath="$PROJECT_DIR$/renren-security.iml" />
       <module fileurl="file://$PROJECT_DIR$/renren-shiro/renren-shiro.iml" filepath="$PROJECT_DIR$/renren-shiro/renren-shiro.iml" />
-      <module fileurl="file://$PROJECT_DIR$/renren-tio/renren-tio.iml" filepath="$PROJECT_DIR$/renren-tio/renren-tio.iml" />
       <module fileurl="file://$PROJECT_DIR$/renren-web/renren-web.iml" filepath="$PROJECT_DIR$/renren-web/renren-web.iml" />
     </modules>
   </component>

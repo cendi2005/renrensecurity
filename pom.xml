@@ -16,6 +16,9 @@
 		<module>other</module>
 		<module>renrentio</module>
 		<module>renren-tio</module>
+        <module>renren-thread</module>
+        <module>swing</module>
+		<module>swing</module>
 	</modules>
 
 	<properties>
