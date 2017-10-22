@@ -9,8 +9,6 @@ import org.springframework.stereotype.Component;
 /**
  * 简单的定时任务，使用注解
  */
-@Component
-@EnableScheduling
 public class ScheduledTask {
 
     private static final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");

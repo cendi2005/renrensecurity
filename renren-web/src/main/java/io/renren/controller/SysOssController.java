@@ -16,19 +16,25 @@ import io.renren.validator.group.AliyunGroup;
 import io.renren.validator.group.QcloudGroup;
 import io.renren.validator.group.QiniuGroup;
 
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.alibaba.fastjson.JSON;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 
 /**
@@ -123,6 +129,81 @@ public class SysOssController {
 		return R.ok().put("url", url);
 	}
 
+	//处理文件上传
+	@RequestMapping(value="/testuploadimg", method = RequestMethod.POST)
+	@ResponseBody
+	public Map uploadImg(@RequestParam("file") MultipartFile file,
+						 HttpServletRequest request, HttpServletResponse response) {
+		String contentType = file.getContentType();
+		String fileName = file.getOriginalFilename();
+        System.out.println("fileName-->" + fileName);
+        System.out.println("getContentType-->" + contentType);
+		String filePath = request.getSession().getServletContext().getRealPath("imgupload/");
+		try {
+			TimeUnit.SECONDS.sleep(1);
+			uploadFile(file.getBytes(), filePath, fileName);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		Map map = new HashMap(4);
+		map.put("code",-1);
+		System.out.println("=========================");
+		//返回json
+		return map;
+	}
+
+
+
+
+	//处理文件上传
+	@RequestMapping(value="/testuploadimg1", method = RequestMethod.POST)
+	@ResponseBody
+	public Map uploadImg1(
+						 HttpServletRequest request, HttpServletResponse response) throws Exception{
+		List<MultipartFile> files =((MultipartHttpServletRequest)request).getFiles("file");
+
+		MultipartFile file = null;
+
+		BufferedOutputStream stream = null;
+		String filePath = request.getSession().getServletContext().getRealPath("imgupload/");
+
+
+		for (int i =0; i< files.size(); ++i) {
+
+			file = files.get(i);
+			String fileName = file.getOriginalFilename();
+
+			if (!file.isEmpty()) {
+
+				try {
+					TimeUnit.SECONDS.sleep(1);
+					uploadFile(file.getBytes(), filePath, fileName);
+
+				} catch (Exception e) {
+					System.out.println(e.getMessage());
+				}
+
+			}
+
+		}
+		Map map = new HashMap();
+		map.put("code",0);
+
+		return map;
+	}
+
+
+	public static void uploadFile(byte[] file, String filePath, String fileName) throws Exception {
+		File targetFile = new File(filePath);
+		if(!targetFile.exists()){
+			targetFile.mkdirs();
+		}
+		System.out.println("path:"+targetFile.getAbsolutePath());
+		FileOutputStream out = new FileOutputStream(filePath+fileName);
+		out.write(file);
+		out.flush();
+		out.close();
+	}
 
 	/**
 	 * 删除
