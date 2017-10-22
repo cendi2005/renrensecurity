@@ -82,9 +82,6 @@ public class SysMenuController extends AbstractController {
 //			menuList = sysMenuService.queryUserList(getUserId());
 //		}
 		menuList = sysMenuService.queryList(new HashMap<String, Object>());
-		for(SysMenuEntity m:menuList){
-			System.out.println(m.getName());
-		}
 		return R.ok().put("menuList", menuList);
 	}
 	
@@ -150,13 +147,8 @@ public class SysMenuController extends AbstractController {
 	 */
 	@RequestMapping("/user")
 	public R user(){
+		System.out.println("current userId:"+getUserId());
 		List<SysMenuEntity> menuList = sysMenuService.getUserMenuList(getUserId());
-
-//		if(menuList!=null&&!menuList.isEmpty()){
-//			for(SysMenuEntity m:menuList){
-//				System.out.println("当前用户权限："+m.getMenuId()+"-->"+m.getName());
-//			}
-//		}
 		
 		return R.ok().put("menuList", menuList);
 	}

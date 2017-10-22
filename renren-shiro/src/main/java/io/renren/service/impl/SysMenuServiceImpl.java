@@ -40,7 +40,7 @@ public class SysMenuServiceImpl implements SysMenuService {
 //			}
 //		}
 
-
+		//说明是系统管理员角色
 		if(menuIdList == null){
 			return menuList;
 		}
@@ -67,14 +67,15 @@ public class SysMenuServiceImpl implements SysMenuService {
 			return getAllMenuList(null);
 		}
 		
-		//用户菜单列表
+		//查询用户的所有菜单ID
+		/***
+		 *所有菜单ID，包括父菜单和子菜单
+		 *select distinct rm.menu_id from sys_user_role ur
+		 LEFT JOIN sys_role_menu rm on ur.role_id = rm.role_id
+		 where ur.user_id = #{userId}
+		 *
+		 */
 		List<Long> menuIdList = sysUserService.queryAllMenuId(userId);
-		System.out.println("=========用户菜单列表===========");
-		if(menuIdList!=null&&!menuIdList.isEmpty()){
-			for(Long id:menuIdList){
-				System.out.println("用户所有的菜单id");
-			}
-		}
 
 		return getAllMenuList(menuIdList);
 	}
