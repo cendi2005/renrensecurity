@@ -30,15 +30,8 @@ public class SysMenuServiceImpl implements SysMenuService {
 		System.out.println("查询的parentId:"+parentId);
 		System.out.println("menuIdList:"+menuIdList);
 
-		//查询所有的系统跟目录,这个可以使用缓存
+		//查询所有的系统根目录,这个可以使用缓存
 		List<SysMenuEntity> menuList = sysMenuDao.queryListParentId(parentId);
-
-//		System.out.println("========查询到的根菜单的目录=============");
-//		if(menuIdList!=null&&!menuIdList.isEmpty()){
-//			for(SysMenuEntity m:menuList){
-//				System.out.println("菜单名称："+m.getName()+",菜单id:"+m.getMenuId()+",父id:"+m.getParentId());
-//			}
-//		}
 
 		//说明是系统管理员角色
 		if(menuIdList == null){
@@ -120,6 +113,9 @@ public class SysMenuServiceImpl implements SysMenuService {
 	 * 获取所有菜单列表
 	 */
 	private List<SysMenuEntity> getAllMenuList(List<Long> menuIdList){
+		for(Long lid:menuIdList){
+			System.out.print(lid+",");
+		}
 		//查询根菜单列表
 		List<SysMenuEntity> menuList = queryListParentId(0L, menuIdList);
 		//递归获取子菜单
