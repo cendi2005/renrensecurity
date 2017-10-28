@@ -113,9 +113,6 @@ public class SysMenuServiceImpl implements SysMenuService {
 	 * 获取所有菜单列表
 	 */
 	private List<SysMenuEntity> getAllMenuList(List<Long> menuIdList){
-		for(Long lid:menuIdList){
-			System.out.print(lid+",");
-		}
 		//查询根菜单列表
 		List<SysMenuEntity> menuList = queryListParentId(0L, menuIdList);
 		//递归获取子菜单

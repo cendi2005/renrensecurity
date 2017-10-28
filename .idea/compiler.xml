@@ -19,14 +19,12 @@
     <bytecodeTargetLevel target="1.8">
       <module name="other" target="1.7" />
       <module name="renren-api" target="1.7" />
-      <module name="renren-common" target="1.7" />
+      <module name="renren-common" target="1.8" />
       <module name="renren-gen" target="1.7" />
       <module name="renren-schedule" target="1.7" />
       <module name="renren-security" target="1.7" />
       <module name="renren-shiro" target="1.7" />
-      <module name="renren-tio" target="1.7" />
       <module name="renren-web" target="1.7" />
-      <module name="swing" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>
