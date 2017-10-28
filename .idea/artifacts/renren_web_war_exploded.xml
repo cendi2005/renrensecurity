@@ -24,6 +24,7 @@
           <element id="library" level="project" name="Maven: org.apache.httpcomponents:httpcore:4.4.3" />
           <element id="library" level="project" name="Maven: org.apache.httpcomponents:httpmime:4.5.1" />
           <element id="library" level="project" name="Maven: org.json:json:20140107" />
+          <element id="library" level="project" name="Maven: bouncycastle:bcprov-jdk15:133" />
           <element id="archive" name="renren-shiro-2.1.0.jar">
             <element id="module-output" name="renren-shiro" />
           </element>

@@ -32,6 +32,7 @@
     <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpmime:4.5.1" level="project" />
     <orderEntry type="library" name="Maven: org.json:json:20140107" level="project" />
     <orderEntry type="library" name="Maven: commons-codec:commons-codec:1.10" level="project" />
+    <orderEntry type="library" name="Maven: bouncycastle:bcprov-jdk15:133" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.jmockit:jmockit:1.21" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.jmockit:jmockit-coverage:1.21" level="project" />
     <orderEntry type="library" name="Maven: net.sf.ehcache:ehcache:2.8.2" level="project" />
