@@ -14,11 +14,6 @@
 		<module>renren-api</module> <!-- API模块 -->
 		<module>renren-web</module>
 		<module>other</module>
-		<module>renrentio</module>
-		<module>renren-tio</module>
-        <module>renren-thread</module>
-        <module>swing</module>
-		<module>swing</module>
 	</modules>
 
 	<properties>
@@ -48,7 +43,7 @@
 		<taglibs-version>1.1.2</taglibs-version>
 		<freemarker-version>2.3.23</freemarker-version>
 	</properties>
-	
+
 	<!-- 阿里云maven仓库 -->
 	<repositories>
 		<repository>

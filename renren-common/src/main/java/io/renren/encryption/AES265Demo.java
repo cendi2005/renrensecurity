@@ -82,7 +82,7 @@ public class AES265Demo {
     }
 
     public static void main(String[] args) throws Exception{
-            String content = "美女，约吗？123@!@#$%^";
+            String content = "美女，约吗？1@qq.com,11088888888 ";
             String server_password = "asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf,.qwertyuisdfghjkl";
             System.out.println("加密之前：" + content);
 

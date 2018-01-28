@@ -73,6 +73,7 @@ public class SysLoginController {
 			Subject subject = ShiroUtils.getSubject();
 			//sha256加密
 			password = new Sha256Hash(password).toHex();
+			System.out.println("password:"+password);
 			UsernamePasswordToken token = new UsernamePasswordToken(username, password);
 			subject.login(token);
 		}catch (UnknownAccountException e) {

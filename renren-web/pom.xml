@@ -47,7 +47,23 @@
             <version>4.12</version>
         </dependency>
 
+        <!--ldap-->
+        <dependency>
+            <groupId>org.springframework.ldap</groupId>
+            <artifactId>spring-ldap-core</artifactId>
+            <version>2.3.2.BUILD-SNAPSHOT</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.qiniu/qiniu-java-sdk -->
+        <dependency>
+            <groupId>com.qiniu</groupId>
+            <artifactId>qiniu-java-sdk</artifactId>
+            <version>7.2.9</version>
+        </dependency>
+
     </dependencies>
+
+
 	<build>
 		<finalName>renren-security</finalName>
 	</build>

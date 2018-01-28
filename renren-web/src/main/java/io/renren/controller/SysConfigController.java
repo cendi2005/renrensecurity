@@ -23,7 +23,16 @@ import java.util.Map;
 public class SysConfigController extends AbstractController {
 	@Autowired
 	private SysConfigService sysConfigService;
-	
+
+
+	@RequestMapping("/test")
+	@ResponseBody
+	public String test1(){
+		return "hello";
+	}
+
+
+
 	/**
 	 * 所有配置列表
 	 */
